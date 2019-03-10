@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CQUEdu</string>
+    <string name="background">Background</string>
+    <string name="cquid">CQUID</string>
+    <string name="hintcquid">Your CQUID</string>
+    <string name="hintpassword">Your password</string>
+    <string name="titlebar">TitleBar</string>
+    <string name="type">Type</string>
+    <string name="password">Password</string>
 </resources>

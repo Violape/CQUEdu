@@ -11,21 +11,76 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/bg"
+        android:contentDescription="@string/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/TitleBar"
         android:layout_width="0dp"
         android:layout_height="160dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:contentDescription="@string/titlebar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/titlebar" />
+
+    <TextView
+        android:id="@+id/TextViewCQUID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="96dp"
+        android:contentDescription="@string/cquid"
+        android:fontFamily="serif"
+        android:text="@string/cquid"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleBar" />
+
+    <TextView
+        android:id="@+id/TextViewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="48dp"
+        android:contentDescription="@string/password"
+        android:fontFamily="serif"
+        android:text="@string/password"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewCQUID" />
+
+    <EditText
+        android:id="@+id/TypeCQUID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="90dp"
+        android:contentDescription="@string/type"
+        android:ems="10"
+        android:inputType="number"
+        android:autofillHints="@string/hintcquid"
+        app:layout_constraintStart_toEndOf="@+id/TextViewCQUID"
+        app:layout_constraintTop_toBottomOf="@+id/TitleBar" tools:targetApi="o"/>
+
+    <EditText
+        android:id="@+id/TypePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/type"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:autofillHints="@string/hintpassword"
+        app:layout_constraintStart_toStartOf="@+id/TypeCQUID"
+        app:layout_constraintTop_toBottomOf="@+id/TypeCQUID" tools:targetApi="o"/>
 
 </android.support.constraint.ConstraintLayout>
