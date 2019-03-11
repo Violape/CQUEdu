@@ -1,6 +1,7 @@
 package com.example.cquedu;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +30,11 @@ public class MainActivity extends AppCompatActivity {
             tot.show();
             return;
         }
-        matchpassword(sid, spsw);
+        if(matchpassword(sid, spsw)){
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, MainFrame.class);
+            startActivity(intent);
+        }
         return;
     }
 
