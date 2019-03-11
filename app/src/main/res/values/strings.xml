@@ -2,6 +2,9 @@
     <string name="app_name">CQUEdu</string>
     <string name="background">Background</string>
     <string name="cquid">CQUID</string>
+    <string name="cqulogo">CQU Logo</string>
+    <string name="maintitle">Welcome to Mobile CQUEDU !</string>
+    <string name="mainsigninfo">Current user: loading...</string>
     <string name="signin">Sign in</string>
     <string name="titlebar">TitleBar</string>
     <string name="type">Type</string>
