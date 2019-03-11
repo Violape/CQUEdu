@@ -3,10 +3,16 @@
     <color name="colorPrimary">#377EB8</color>
     <color name="colorPrimaryDark">#13227A</color>
     <color name="colorAccent">#C21A1C</color>
+    <color name="themec2d2">#1A3F5C</color>
+    <color name="themec2d1">#295F8A</color>
+    <color name="themec2n">#377EB8</color>
+    <color name="themec2l1">#82b2da</color>
+    <color name="themec2l2">#accce6</color>
+    <color name="themec2l3">#d5e5f3</color>
+    <color name="themec6d2">#999900</color>
+    <color name="themec6d1">#c5c500</color>
     <color name="themec6n">#ffff33</color>
     <color name="themec6l1">#FFFF88</color>
     <color name="themec6l2">#FFFFAA</color>
     <color name="themec6l3">#ffffcc</color>
-    <color name="themec6d1">#c5c500</color>
-    <color name="themec6d2">#999900</color>
 </resources>
