@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,14 +18,14 @@ public class MainActivity extends AppCompatActivity {
         EditText id = findViewById(R.id.TypeCQUID);
         String sid = id.getText().toString();
         EditText psw = findViewById(R.id.TypePassword);
-        String spsw = id.getText().toString();
+        String spsw = psw.getText().toString();
         if(sid.length()==0){
-            Toast tot = Toast.makeText(context, "Please input your CQUID!", Toast.LENGTH_SHORT);
+            Toast tot = Toast.makeText(this, "Please input your CQUID!", Toast.LENGTH_SHORT);
             tot.show();
             return;
         }
         if(spsw.length()==0){
-            Toast tot = Toast.makeText(context, "Please input your password!", Toast.LENGTH_SHORT);
+            Toast tot = Toast.makeText(this, "Please input your password!", Toast.LENGTH_SHORT);
             tot.show();
             return;
         }
