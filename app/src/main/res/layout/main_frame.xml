@@ -64,4 +64,167 @@
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toEndOf="@+id/m_iv_cqulogo"
         app:layout_constraintTop_toBottomOf="@+id/m_tv_titlebar" />
+
+    <ImageView
+        android:id="@+id/m_iv_info"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_iv_cqulogo"
+        app:srcCompat="@drawable/m_info" />
+
+    <ImageView
+        android:id="@+id/m_iv_scheme"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_iv_cqulogo"
+        app:srcCompat="@drawable/m_plan" />
+
+    <ImageView
+        android:id="@+id/m_iv_schedule"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_iv_cqulogo"
+        app:srcCompat="@drawable/m_clock" />
+
+    <TextView
+        android:id="@+id/m_tv_function1"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/mainfunction1"
+        android:fontFamily="serif"
+        android:text="@string/mainfunction1"
+        android:textAlignment="center"
+        android:textColor="@color/themec2d2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_iv_info" />
+
+    <TextView
+        android:id="@+id/m_tv_function2"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/mainfunction2"
+        android:fontFamily="serif"
+        android:text="@string/mainfunction2"
+        android:textAlignment="center"
+        android:textColor="@color/themec2d2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_iv_info" />
+
+    <TextView
+        android:id="@+id/m_tv_function3"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/mainfunction3"
+        android:fontFamily="serif"
+        android:text="@string/mainfunction3"
+        android:textAlignment="center"
+        android:textColor="@color/themec2d2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_iv_info" />
+
+    <ImageView
+        android:id="@+id/m_iv_score"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_tv_function1"
+        app:srcCompat="@drawable/m_score" />
+
+    <ImageView
+        android:id="@+id/m_iv_calculate"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_tv_function2"
+        app:srcCompat="@drawable/m_calculator" />
+
+    <ImageView
+        android:id="@+id/m_iv_comparison"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_tv_function3"
+        app:srcCompat="@drawable/m_comparison" />
+
+    <TextView
+        android:id="@+id/m_tv_function4"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/mainfunction4"
+        android:fontFamily="serif"
+        android:text="@string/mainfunction4"
+        android:textAlignment="center"
+        android:textColor="@color/themec2d2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_iv_score" />
+
+    <TextView
+        android:id="@+id/m_tv_function5"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/mainfunction5"
+        android:fontFamily="serif"
+        android:text="@string/mainfunction5"
+        android:textAlignment="center"
+        android:textColor="@color/themec2d2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_iv_calculate" />
+
+    <TextView
+        android:id="@+id/m_tv_function6"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/mainfunction6"
+        android:fontFamily="serif"
+        android:text="@string/mainfunction6"
+        android:textAlignment="center"
+        android:textColor="@color/themec2d2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_iv_comparison" />
+
 </android.support.constraint.ConstraintLayout>
