@@ -12,6 +12,7 @@
     <string name="mainfunction4">Course\nScores</string>
     <string name="mainfunction5">GPA\nCalculation</string>
     <string name="mainfunction6">Score\nComparison</string>
+    <string name="mainlogout">Log out</string>
     <string name="password">Password</string>
     <string name="quit">Quit</string>
     <string name="signin">Sign in</string>
