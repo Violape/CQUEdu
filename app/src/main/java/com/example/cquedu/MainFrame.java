@@ -43,4 +43,9 @@ public class MainFrame extends AppCompatActivity {
         alertdialog1.show();
     }
 
+    public void onclickstudentinfo(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainFrame.this, Studentinfo.class);
+        startActivity(intent);
+    }
 }

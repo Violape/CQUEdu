@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/m_iv_cqulogo"
+        android:id="@+id/i_iv_cqulogo"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="32dp"
@@ -31,7 +31,7 @@
         app:srcCompat="@drawable/cqulogo" />
 
     <TextView
-        android:id="@+id/m_tv_titlebar"
+        android:id="@+id/i_tv_titlebar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -44,8 +44,8 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/m_iv_cqulogo"
-        app:layout_constraintTop_toTopOf="@+id/m_iv_cqulogo" />
+        app:layout_constraintStart_toEndOf="@+id/i_iv_cqulogo"
+        app:layout_constraintTop_toTopOf="@+id/i_iv_cqulogo" />
 
     <TextView
         android:id="@+id/m_tv_signinfo"
@@ -62,18 +62,19 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toEndOf="@+id/m_iv_cqulogo"
-        app:layout_constraintTop_toBottomOf="@+id/m_tv_titlebar" />
+        app:layout_constraintStart_toEndOf="@+id/i_iv_cqulogo"
+        app:layout_constraintTop_toBottomOf="@+id/i_tv_titlebar" />
 
     <ImageView
         android:id="@+id/m_iv_info"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginTop="48dp"
+        android:onClick="onclickstudentinfo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/m_iv_cqulogo"
+        app:layout_constraintTop_toBottomOf="@+id/i_iv_cqulogo"
         app:srcCompat="@drawable/m_info" />
 
     <ImageView
@@ -85,7 +86,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/m_iv_cqulogo"
+        app:layout_constraintTop_toBottomOf="@+id/i_iv_cqulogo"
         app:srcCompat="@drawable/m_plan" />
 
     <ImageView
@@ -96,7 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/m_iv_cqulogo"
+        app:layout_constraintTop_toBottomOf="@+id/i_iv_cqulogo"
         app:srcCompat="@drawable/m_clock" />
 
     <TextView
@@ -106,6 +107,7 @@
         android:layout_marginTop="8dp"
         android:contentDescription="@string/mainfunction1"
         android:fontFamily="serif"
+        android:onClick="onclickstudentinfo"
         android:text="@string/mainfunction1"
         android:textAlignment="center"
         android:textColor="@color/themec2d2"

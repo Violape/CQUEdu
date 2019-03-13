@@ -16,6 +16,7 @@
     <string name="password">Password</string>
     <string name="quit">Quit</string>
     <string name="signin">Sign in</string>
+    <string name="studentinfo">Student Information</string>
     <string name="titlebar">TitleBar</string>
     <string name="type">Type</string>
 </resources>
