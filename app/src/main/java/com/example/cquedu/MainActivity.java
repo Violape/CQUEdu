@@ -14,6 +14,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         try{
             Response logres = okhttp.newCall(login).execute();
-            String infores = okhttp.newCall(parsemyinfo).execute().body().string();
+            Document document = Jsoup.parse(okhttp.newCall(parsemyinfo).execute().body().string());
         }
         catch (IOException ex){
             return false;
