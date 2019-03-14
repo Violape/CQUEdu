@@ -31,5 +31,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.squareup.okhttp3:okhttp:3.14.0'
     implementation 'org.jsoup:jsoup:1.11.3'
-    implementation 'cn.wanghaomiao:JsoupXpath:2.3.2'
 }
