@@ -14,6 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -93,25 +96,32 @@ public class MainActivity extends AppCompatActivity {
                 .addHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8")
                 .build();
         Request parsemyinfo = new Request.Builder()
-                .url("http://jxgl.cqu.edu.cn/xsxj/R_XJDA_CKXSDA_Detail.aspx?id="+id)
+                .url("http://jxgl.cqu.edu.cn/PUB/foot.aspx")
                 .get()
                 .addHeader("host", "jxgl.cqu.edu.cn")
                 .addHeader("connection", "keep-alive")
                 .addHeader("upgrade-insecure-requests", "1")
                 .addHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36")
                 .addHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8")
-                .addHeader("referer", "http://jxgl.cqu.edu.cn/xsxj/R_XJDA_CKXSDA_Detail.aspx?id=20161673")
+                .addHeader("referer", "http://jxgl.cqu.edu.cn/PUB/foot.aspx")
                 .addHeader("accept-language", "zh-CN,zh;q=0.9,en;q=0.8")
                 .addHeader("cache-control", "no-cache")
                 .build();
+        Response logres;
+        String infores;
         try{
-            Response logres = okhttp.newCall(login).execute();
-            String infores = new String(okhttp.newCall(parsemyinfo).execute().body().bytes(),"gbk");
-            infores += "";
+            logres = okhttp.newCall(login).execute();
+            infores = new String(okhttp.newCall(parsemyinfo).execute().body().bytes(),"gbk");
         }
         catch (IOException ex){
             return false;
         }
+        int indexl = infores.indexOf('['), indexr = infores.indexOf(']');
+        String cquid;
+        if(indexl == -1 || indexr == -1)
+            return false;
+        else
+            cquid = infores.substring(indexl+1, indexr);
         return true;
     }
 
