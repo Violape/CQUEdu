@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainFrame extends AppCompatActivity {
 
@@ -13,6 +14,10 @@ public class MainFrame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_frame);
+        Intent intent = getIntent();
+        String cquid = intent.getStringExtra("CQUID");
+        TextView signinfo = findViewById(R.id.m_tv_signinfo);
+        signinfo.setText("Current User: "+cquid);
     }
 
     private DialogInterface.OnClickListener click1=new DialogInterface.OnClickListener()
