@@ -17,7 +17,7 @@ public class MainFrame extends AppCompatActivity {
         Intent intent = getIntent();
         String cquid = intent.getStringExtra("CQUID");
         TextView signinfo = findViewById(R.id.m_tv_signinfo);
-        signinfo.setText("Current User: "+cquid);
+        signinfo.setText("Current User: "+ cquid);
     }
 
     private DialogInterface.OnClickListener click1=new DialogInterface.OnClickListener()
@@ -49,8 +49,11 @@ public class MainFrame extends AppCompatActivity {
     }
 
     public void onclickstudentinfo(View view){
-        Intent intent = new Intent();
-        intent.setClass(MainFrame.this, Studentinfo.class);
-        startActivity(intent);
+        Intent intent1 = getIntent();
+        String cquid = intent1.getStringExtra("CQUID");
+        Intent intent2 = new Intent();
+        intent2.setClass(MainFrame.this, Studentinfo.class);
+        intent2.putExtra("CQUID", cquid);
+        startActivity(intent2);
     }
 }
