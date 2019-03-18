@@ -83,4 +83,45 @@
             android:layout_height="match_parent" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/i_tv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/search"
+        android:textColor="@color/themec2d1"
+        android:textSize="24sp"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/i_linearlayout" />
+
+    <EditText
+        android:id="@+id/i_te_search"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:autofillHints="@string/cquid"
+        android:contentDescription="@string/search"
+        android:ems="10"
+        android:inputType="number"
+        android:textColor="@color/themec2n"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/i_tv_search"
+        app:layout_constraintTop_toBottomOf="@+id/i_linearlayout" />
+
+    <ImageView
+        android:id="@+id/i_iv_search"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/cqulogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/i_te_search"
+        app:layout_constraintTop_toBottomOf="@+id/i_linearlayout"
+        app:srcCompat="@drawable/search" />
+
 </android.support.constraint.ConstraintLayout>
