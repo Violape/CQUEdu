@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,12 +47,11 @@ public class Studentinfo extends AppCompatActivity {
         listView = findViewById(R.id.i_lv_infolist);
         listView.setAdapter(adapter);
 
-        parseContent();
-        generateContent();
+        parseContent(user);
 
     }
 
-    private void parseContent(){
+    private void parseContent(String user){
         Request parsemyinfo = new Request.Builder()
                 .url("http://jxgl.cqu.edu.cn/xsxj/R_XJDA_CKXSDA_Detail.aspx?id=" + user)
                 .get()
@@ -99,6 +100,7 @@ public class Studentinfo extends AppCompatActivity {
             data[7] = Integer.valueOf(rawClass.substring(rawClass.length()-2)).toString();
         }
 
+        generateContent();
         adapter.notifyDataSetChanged();
     }
 
@@ -257,6 +259,7 @@ public class Studentinfo extends AppCompatActivity {
             default: return "N/A";
         }
     }
+
     private void generateContent(){
         theList.clear();
         for(int i = 0; i < field.length; i++){
@@ -264,5 +267,11 @@ public class Studentinfo extends AppCompatActivity {
             String d = data[i];
             theList.add(new StudentInfoPair(f,d));
         }
+    }
+
+    public void searchStudent(View view){
+        EditText edit = findViewById(R.id.i_te_search);
+        String target = edit.getText().toString();
+        parseContent(target);
     }
 }
