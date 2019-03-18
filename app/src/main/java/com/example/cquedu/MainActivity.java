@@ -20,7 +20,7 @@ import okhttp3.*;
 
 public class MainActivity extends AppCompatActivity {
     @SuppressLint("NewApi")
-    private OkHttpClient okhttp;
+    MyApplication application;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        OkHttpClient okhttp = new OkHttpClient.Builder()
+        application = (MyApplication)this.getApplication();
+        application.license = new OkHttpClient.Builder()
                 .cookieJar(new CookieJar() {
                     private final HashMap<String, List<Cookie>> cookieStore = new HashMap<String, List<Cookie>>();
                     @Override
@@ -60,16 +61,27 @@ public class MainActivity extends AppCompatActivity {
             tot.show();
             return;
         }
-        if(matchpassword(sid, spsw)){
-            Intent intent = new Intent();
-            intent.setClass(MainActivity.this, MainFrame.class);
-            intent.putExtra("CQUID", sid);
-            startActivity(intent);
-        }
-        else {
-            Toast tot = Toast.makeText(this, "Wrong username and password credentials!", Toast.LENGTH_LONG);
-            tot.show();
-            return;
+        int res = matchpassword(sid, spsw);
+        Toast tot;
+        switch (res){
+            case 0:
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, MainFrame.class);
+                intent.putExtra("CQUID", sid);
+                startActivity(intent);
+                break;
+            case 1:
+                tot = Toast.makeText(this, "I/O Error! Please contact admin.", Toast.LENGTH_LONG);
+                tot.show();
+                break;
+            case 2:
+                tot = Toast.makeText(this, "Server Unavailable!", Toast.LENGTH_LONG);
+                tot.show();
+                break;
+            case 3:
+                tot = Toast.makeText(this, "Wrong CQUID or password!", Toast.LENGTH_LONG);
+                tot.show();
+                break;
         }
         return;
     }
@@ -107,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         return hexDigits[d1] + hexDigits[d2];
     }
 
-    private boolean matchpassword(String id, String psw){
+    private int matchpassword(String id, String psw){
         String md5psw = encodeByMD5(id + encodeByMD5(psw).substring(0, 30) + "10611").substring(0, 30);
         RequestBody payload = new FormBody.Builder()
                 .add("Sel_Type","STU")
@@ -145,22 +157,22 @@ public class MainActivity extends AppCompatActivity {
         Response logres;
         String infores;
         try{
-            logres = okhttp.newCall(login).execute();
-            infores = new String(okhttp.newCall(parsefoot).execute().body().bytes(),"gbk");
+            logres = application.license.newCall(login).execute();
+            infores = new String(application.license.newCall(parsefoot).execute().body().bytes(),"gbk");
         }
         catch (IOException ex){
-            return false;
+            return 1;
         }
         int indexl = infores.indexOf('['), indexr = infores.indexOf(']');
         String cquid;
         if(indexl == -1 || indexr == -1)
-            return false;
+            return 2;
         else
             cquid = infores.substring(indexl+1, indexr);
         if(cquid.equals(id))
-            return true;
+            return 0;
         else
-            return false;
+            return 3;
     }
 
 
