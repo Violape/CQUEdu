@@ -41,12 +41,13 @@ public class Studentinfo extends AppCompatActivity {
         TextView signinfo = findViewById(R.id.i_tv_signinfo);
         signinfo.setText("Current User: "+ myuser);
 
-        parseContent();
-        generateContent();
-
         adapter = new StudentInfoAdapter(getBaseContext(), R.layout.layout_studentinfoitem, theList);
         listView = findViewById(R.id.i_lv_infolist);
         listView.setAdapter(adapter);
+
+        parseContent();
+        generateContent();
+
     }
 
     private void parseContent(){
@@ -86,7 +87,7 @@ public class Studentinfo extends AppCompatActivity {
             data[4] = "N/A";
         }
 
-        data[5] = findContent(infores,"部</td><td>", "<br></td>");
+        data[5] = findFaculty(findContent(infores,"部</td><td>", "<br></td>"));
 
         String rawClass = findContent(infores,"班级</td><td>", "<br></td>");
         if(rawClass.equals("N/A")){
@@ -94,7 +95,7 @@ public class Studentinfo extends AppCompatActivity {
             data[7] = "N/A";
         }
         else{
-            data[6] = "20"+rawClass.substring(0,1);
+            data[6] = "20"+rawClass.substring(0,2);
             data[7] = Integer.valueOf(rawClass.substring(rawClass.length()-2)).toString();
         }
 
@@ -122,7 +123,7 @@ public class Studentinfo extends AppCompatActivity {
     }
 
     private String findOrigin(String id){
-        int zip = Integer.valueOf(id.substring(0,3));
+        int zip = Integer.valueOf(id.substring(0,4));
         switch (zip){
             case 3206: return "Nantong, Jiangsu";
             default: return "N/A";
@@ -130,9 +131,9 @@ public class Studentinfo extends AppCompatActivity {
     }
 
     private String findDOB(String id){
-        int year = Integer.valueOf(id.substring(6,7));
-        int month = Integer.valueOf(id.substring(8,9));
-        int day = Integer.valueOf(id.substring(10,11));
+        int year = Integer.valueOf(id.substring(6,10));
+        int month = Integer.valueOf(id.substring(10,12));
+        int day = Integer.valueOf(id.substring(12,14));
         String y,m,d;
         y = String.valueOf(year);
         switch (month){
@@ -182,6 +183,44 @@ public class Studentinfo extends AppCompatActivity {
             return m+" "+d+", "+y;
     }
 
+    private String findFaculty(String facultyname){
+        switch (facultyname){
+            case "公共管理学院": return "Public Affairs";
+            case "经济与工商管理学院": return "Economics & BA";
+            case "建设管理与房地产学院": return "CM & Real Estate";
+            case "外国语学院": return "Foreign Languages";
+            case "艺术学院": return "Arts";
+            case "美视电影学院": return "Film";
+            case "新闻学院": return "Journalism";
+            case "法学院": return "Law";
+            case "大数据与软件学院": return "Software Eng.";
+            case "数学与统计学院": return "Maths & Statistics";
+            case "机械工程学院": return "Mechanical Eng.";
+            case "光电工程学院": return "Optoelectronic Eng.";
+            case "材料科学与工程学院": return "Material Sci. & Eng.";
+            case "能源与动力工程学院": return "Energy & Power Eng.";
+            case "电气工程学院": return "Electrical Eng.";
+            case "微电子与通信工程学院": return "Optoelectronic Eng.";
+            case "自动化学院": return "Automation";
+            case "计算机学院": return "Computer Sci.";
+            case "建筑城规学院": return "Architecture & Urban Planning";
+            case "土木工程学院": return "Civil Eng.";
+            case "城市建设与环境工程学院": return "Urban Cons. & Env. Eng.";
+            case "化学化工学院": return "Chemistry & Chemical Eng.";
+            case "生物工程学院": return "Bioengineering";
+            case "资源与环境科学学院": return "Resource & Env. Sci.";
+            case "体育学院": return "Physical Education";
+            case "生命科学学院": return "Life Science";
+            case "物理学院": return "Physics";
+            case "弘深学院": return "Hongshen Honors";
+            case "博雅学院": return "Boya Liberal Arts";
+            case "UC联合学院": return "CQU-UC Joint CO-OP";
+            case "药学院": return "Pharmaceutical Sci.";
+            case "航空航天学院": return "Aerospace Eng.";
+            case "汽车工程学院": return "Automotive Eng.";
+            default: return "N/A";
+        }
+    }
     private void generateContent(){
         theList.clear();
         for(int i = 0; i < field.length; i++){

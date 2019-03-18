@@ -14,12 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="16dp"
+            android:paddingLeft="8dp"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:text="TextView"
             android:textColor="@color/themec2d1"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:typeface="serif" />
 
@@ -29,13 +29,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingTop="16dp"
-            android:paddingRight="16dp"
+            android:paddingRight="8dp"
             android:paddingBottom="16dp"
             android:text="TextView"
             android:textAlignment="textEnd"
             android:textColor="@color/themec2n"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textStyle="normal"
             android:typeface="serif" />
     </LinearLayout>
 </LinearLayout>
