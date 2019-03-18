@@ -125,6 +125,42 @@ public class Studentinfo extends AppCompatActivity {
     private String findOrigin(String id){
         int zip = Integer.valueOf(id.substring(0,4));
         switch (zip){
+            case 1101: return "Beijing, Beijing";
+            case 1201: return "Tianjin, Tianjin";
+            case 1301: return "Shijiazhuang, Hebei";
+            case 1302: return "Tangshan, Hebei";
+            case 1303: return "Qinhuangdao, Hebei";
+            case 1304: return "Handan, Hebei";
+            case 1305: return "Xingtai, Hebei";
+            case 1306: return "Baoding, Hebei";
+            case 1307: return "Zhangjiakou, Hebei";
+            case 1308: return "Chengde, Hebei";
+            case 1309: return "Cangzhou, Hebei";
+            case 1310: return "Langfang, Hebei";
+            case 1311: return "Hengshui, Hebei";
+            case 1401: return "Taiyuan, Shanxi";
+            case 1402: return "Datong, Shanxi";
+            case 1403: return "Yangquan, Shanxi";
+            case 1404: return "Changzhi, Shanxi";
+            case 1405: return "Jincheng, Shanxi";
+            case 1406: return "Shuozhou, Shanxi";
+            case 1407: return "Jinzhong, Shanxi";
+            case 1408: return "Yuncheng, Shanxi";
+            case 1409: return "Xinzhou, Shanxi";
+            case 1410: return "Linfen, Shanxi";
+            case 1411: return "Lyuliang, Shanxi";
+            case 1501: return "Hohhot, Inner Mongolia";
+            case 1502: return "Baotou, Inner Mongolia";
+            case 1503: return "Wuhai, Inner Mongolia";
+            case 1504: return "Chifeng, Inner Mongolia";
+            case 1505: return "Tongliao, Inner Mongolia";
+            case 1506: return "Ordos, Inner Mongolia";
+            case 1507: return "Hulun Buir, Inner Mongolia";
+            case 1508: return "Bayan Nur, Inner Mongolia";
+            case 1509: return "Ulanqab, Inner Mongolia";
+            case 1522: return "Hinggan, Inner Mongolia";
+            case 1525: return "Xilin Gol, Inner Mongolia";
+            case 1529: return "Alxa, Inner Mongolia";
             case 3206: return "Nantong, Jiangsu";
             default: return "N/A";
         }
