@@ -585,6 +585,6 @@ public class Studentinfo extends AppCompatActivity {
     }
 
     public void onReturn(View view){
-        android.os.Process.killProcess(android.os.Process.myPid());
+        finish();
     }
 }

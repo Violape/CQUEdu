@@ -1,21 +1,24 @@
 package com.example.cquedu;
 
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
-
 import com.tencent.smtt.sdk.QbSdk;
 import com.tencent.smtt.sdk.TbsReaderView;
 
-public class FacultyScheme extends AppCompatActivity {
-    TbsReaderView mTbsReaderView;
+import java.io.File;
+
+public class FacultyScheme extends AppCompatActivity implements TbsReaderView.ReaderCallback {
+    private TbsReaderView mTbsReaderView = new TbsReaderView(this, this);
+    private String tbsReaderTemp = Environment.getExternalStorageDirectory() + "/TbsReaderTemp";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_scheme);
-
         QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
             @Override
             public void onCoreInitFinished() {
@@ -27,7 +30,13 @@ public class FacultyScheme extends AppCompatActivity {
                 //初始化完成回调
             }
         });
+        RelativeLayout rel = findViewById(R.id.s_rl_pdf);
+        rel.addView(mTbsReaderView, new RelativeLayout.LayoutParams(-1,-1));
+    }
 
+    @Override
+    public void onCallBackAction(Integer i, Object o1, Object o2){
+        ;
     }
 
     public void getScheme(View view){
@@ -66,6 +75,37 @@ public class FacultyScheme extends AppCompatActivity {
             case 28: targetpage = "38汽车"; break;
             default: break;
         }
-        String directory = "http://http://jxgl.cqu.edu.cn/_data/NEWS/kcdg/"+targetpage+".pdf";
+        String filePath = "";
+        String fileName = targetpage+".pdf";
+        String bsReaderTemp = tbsReaderTemp;
+        File bsReaderTempFile =new File(bsReaderTemp);
+        if (!bsReaderTempFile.exists()) {
+            boolean mkdir = bsReaderTempFile.mkdir();
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("filePath", filePath);
+        bundle.putString("tempPath", tbsReaderTemp);
+        boolean result = mTbsReaderView.preOpen(getFileType(fileName), false);
+        if (result)
+            mTbsReaderView.openFile(bundle);
+    }
+
+    private String getFileType(String paramString) {
+        String str = "";
+        if (TextUtils.isEmpty(paramString)) {
+            return str;
+        }
+        int i = paramString.lastIndexOf('.');
+        if (i <= -1) {
+            return str;
+        }
+        str = paramString.substring(i + 1);
+        return str;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mTbsReaderView.onStop();
     }
 }
