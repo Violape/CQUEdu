@@ -98,4 +98,19 @@
         app:layout_constraintStart_toEndOf="@+id/s_sp_faculty"
         app:srcCompat="@drawable/search" />
 
+    <RelativeLayout
+        android:id="@+id/s_rl_pdf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/s_tv_search">
+
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
