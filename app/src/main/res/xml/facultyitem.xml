@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="facultyItem">
+        <item>Public Affairs</item>
+        <item>Economics and BA</item>
+        <item>CM and Real Estate</item>
+        <item>Foreign Languages</item>
+        <item>Arts</item>
+        <item>Film</item>
+        <item>Journalism</item>
+        <item>Law</item>
+        <item>Software Eng.</item>
+        <item>Maths and Statistics</item>
+        <item>Mechanical Eng.</item>
+        <item>Optoelectronic Eng.</item>
+        <item>Material Sci. and Eng.</item>
+        <item>Energy and Power Eng.</item>
+        <item>Electrical Eng.</item>
+        <item>Optoelectronic Eng.</item>
+        <item>Automation</item>
+        <item>Computer Sci.</item>
+        <item>Architecture and Urban Planning</item>
+        <item>Civil Eng.</item>
+        <item>Urban Cons. and Env. Eng.</item>
+        <item>Chemistry and Chemical Eng.</item>
+        <item>Bioengineering</item>
+        <item>Resource and Env. Sci.</item>
+        <item>Physical Education</item>
+        <item>Life Science</item>
+        <item>Physics</item>
+        <item>Hongshen Honors</item>
+        <item>Boya Liberal Arts</item>
+        <item>CQU-UC Joint CO-OP</item>
+        <item>Pharmaceutical Sci.</item>
+        <item>Aerospace Eng.</item>
+        <item>Automotive Eng.</item>
+    </string-array>
+</resources>

@@ -4,6 +4,7 @@
     <string name="copyright">Copyright ownership belongs to Lorenzo Wu.\nAll rights reserved.</string>
     <string name="cquid">CQUID</string>
     <string name="cqulogo">CQU Logo</string>
+    <string name="facultyscheme">Faculty Scheme</string>
     <string name="maintitle">Welcome to Mobile CQUEDU !</string>
     <string name="mainsigninfo">Current user: loading...</string>
     <string name="mainfunction1">Student\nInformation</string>
@@ -15,6 +16,7 @@
     <string name="mainlogout">Log out</string>
     <string name="password">Password</string>
     <string name="quit">Quit</string>
+    <string name="returnback">Return</string>
     <string name="signin">Sign in</string>
     <string name="search">Search:</string>
     <string name="studentinfo">Student Information</string>

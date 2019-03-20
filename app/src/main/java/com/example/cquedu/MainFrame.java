@@ -56,4 +56,13 @@ public class MainFrame extends AppCompatActivity {
         intent2.putExtra("CQUID", cquid);
         startActivity(intent2);
     }
+
+    public void onClickFacultyScheme(View view){
+        Intent intent1 = getIntent();
+        String cquid = intent1.getStringExtra("CQUID");
+        Intent intent2 = new Intent();
+        intent2.setClass(MainFrame.this, FacultyScheme.class);
+        intent2.putExtra("CQUID", cquid);
+        startActivity(intent2);
+    }
 }
