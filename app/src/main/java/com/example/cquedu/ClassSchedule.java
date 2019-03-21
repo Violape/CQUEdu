@@ -3,6 +3,7 @@ package com.example.cquedu;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class ClassSchedule extends AppCompatActivity {
@@ -18,6 +19,9 @@ public class ClassSchedule extends AppCompatActivity {
         myuser = intent.getStringExtra("CQUID");
         TextView signinfo = findViewById(R.id.i_tv_signinfo);
         signinfo.setText("Current User: "+ myuser);
+    }
 
+    public void onReturn(View view){
+        finish();
     }
 }
