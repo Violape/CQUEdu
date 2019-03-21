@@ -70,6 +70,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@string/cqulogo"
+        android:onClick="onFindSchedule"
         app:layout_constraintBottom_toBottomOf="@+id/t_sp_week"
         app:layout_constraintStart_toEndOf="@+id/t_sp_week"
         app:srcCompat="@drawable/search" />
@@ -249,7 +250,7 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -262,7 +263,7 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -275,7 +276,7 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -288,7 +289,7 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -301,7 +302,7 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -314,7 +315,7 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
@@ -327,7 +328,7 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
@@ -344,10 +345,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c12"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -357,10 +358,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c22"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -370,10 +371,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c32"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -383,10 +384,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c42"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -396,10 +397,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c52"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -409,10 +410,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c62"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
@@ -422,10 +423,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c72"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
@@ -442,10 +443,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c13"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -455,10 +456,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c23"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -468,10 +469,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c33"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -481,10 +482,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c43"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -494,10 +495,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c53"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -507,10 +508,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c63"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
@@ -520,10 +521,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c73"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
@@ -540,10 +541,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c14"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="0.2"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -553,10 +554,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c24"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="0.2"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -566,10 +567,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c34"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="0.2"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -579,10 +580,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c44"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="0.2"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -592,10 +593,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c54"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="0.2"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -605,10 +606,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c64"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="0.2"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
@@ -618,10 +619,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c74"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="0.2"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
@@ -638,10 +639,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c15"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -651,10 +652,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c25"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -664,10 +665,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c35"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -677,10 +678,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c45"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l1"
                 android:gravity="center"
                 android:padding="0dp"
@@ -690,10 +691,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c55"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2l2"
                 android:gravity="center"
                 android:padding="0dp"
@@ -703,10 +704,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c65"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
@@ -716,10 +717,10 @@
 
             <TextView
                 android:id="@+id/t_tv_c75"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:layout_weight="0.01"
                 android:background="@color/themec2n"
                 android:gravity="center"
                 android:padding="0dp"
