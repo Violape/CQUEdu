@@ -14,9 +14,9 @@
     <color name="themec2d2">#1A3F5C</color>
     <color name="themec2d1">#295F8A</color>
     <color name="themec2n">#377EB8</color>
-    <color name="themec2l1">#82b2da</color>
-    <color name="themec2l2">#accce6</color>
-    <color name="themec2l3">#d5e5f3</color>
+    <color name="themec2l1">#82B2DA</color>
+    <color name="themec2l2">#ACCCE6</color>
+    <color name="themec2l3">#D5E5F3</color>
 
     <color name="themec3d2">#265725</color>
     <color name="themec3d1">#3A8337</color>
@@ -31,4 +31,8 @@
     <color name="themec6l1">#FFFF88</color>
     <color name="themec6l2">#FFFFAA</color>
     <color name="themec6l3">#ffffcc</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#888888</color>
 </resources>

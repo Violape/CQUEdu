@@ -14,6 +14,14 @@
     <string name="mainfunction5">GPA\nCalculation</string>
     <string name="mainfunction6">Score\nComparison</string>
     <string name="mainlogout">Log out</string>
+    <string name="nulltext"></string>
+    <string name="schedule1">Mon</string>
+    <string name="schedule2">Tue</string>
+    <string name="schedule3">Wed</string>
+    <string name="schedule4">Thu</string>
+    <string name="schedule5">Fri</string>
+    <string name="schedule6">Sat</string>
+    <string name="schedule7">Sun</string>
     <string name="password">Password</string>
     <string name="quit">Quit</string>
     <string name="returnback">Return</string>
