@@ -27,7 +27,7 @@ public class FacultyScheme extends AppCompatActivity implements TbsReaderView.Re
 
         intent = getIntent();
         myuser = intent.getStringExtra("CQUID");
-        TextView signinfo = findViewById(R.id.i_tv_signinfo);
+        TextView signinfo = findViewById(R.id.s_tv_signinfo);
         signinfo.setText("Current User: "+ myuser);
 
         QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {

@@ -64,6 +64,29 @@
         app:layout_constraintStart_toEndOf="@+id/t_iv_cqulogo"
         app:layout_constraintTop_toBottomOf="@+id/t_tv_titlebar" />
 
+    <ImageView
+        android:id="@+id/t_iv_search"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/cqulogo"
+        app:layout_constraintBottom_toBottomOf="@+id/t_sp_week"
+        app:layout_constraintStart_toEndOf="@+id/t_sp_week"
+        app:srcCompat="@drawable/search" />
+
+    <TextView
+        android:id="@+id/t_tv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/search"
+        android:textColor="@color/themec2d1"
+        android:textSize="24sp"
+        android:typeface="serif"
+        app:layout_constraintBottom_toTopOf="@+id/t_bt_return"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/t_bt_return"
         android:layout_width="128dp"
@@ -81,7 +104,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Spinner
+        android:id="@+id/t_sp_week"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:entries="@array/Weeks"
+        app:layout_constraintStart_toEndOf="@+id/t_tv_search"
+        app:layout_constraintTop_toTopOf="@+id/t_tv_search" />
+
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"

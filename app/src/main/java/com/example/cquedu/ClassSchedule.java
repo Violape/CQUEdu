@@ -17,7 +17,7 @@ public class ClassSchedule extends AppCompatActivity {
 
         intent = getIntent();
         myuser = intent.getStringExtra("CQUID");
-        TextView signinfo = findViewById(R.id.i_tv_signinfo);
+        TextView signinfo = findViewById(R.id.t_tv_signinfo);
         signinfo.setText("Current User: "+ myuser);
     }
 
