@@ -113,4 +113,21 @@
 
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/s_bt_return"
+        android:layout_width="128dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/buttonbg"
+        android:contentDescription="@string/returnback"
+        android:elevation="0dp"
+        android:onClick="onReturn"
+        android:text="@string/returnback"
+        android:textColor="@color/themec2l3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

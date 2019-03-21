@@ -1,5 +1,6 @@
 package com.example.cquedu;
 
+import android.content.Intent;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,18 +8,28 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import com.tencent.smtt.sdk.QbSdk;
 import com.tencent.smtt.sdk.TbsReaderView;
 
 import java.io.File;
 
 public class FacultyScheme extends AppCompatActivity implements TbsReaderView.ReaderCallback {
-    private TbsReaderView mTbsReaderView = new TbsReaderView(this, this);
-    private String tbsReaderTemp = Environment.getExternalStorageDirectory() + "/TbsReaderTemp";
+    private TbsReaderView mTbsReaderView;
+    private String tbsReaderTemp;
+    private Intent intent;
+    private String myuser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_scheme);
+
+        intent = getIntent();
+        myuser = intent.getStringExtra("CQUID");
+        TextView signinfo = findViewById(R.id.i_tv_signinfo);
+        signinfo.setText("Current User: "+ myuser);
+
         QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
             @Override
             public void onCoreInitFinished() {
@@ -30,6 +41,8 @@ public class FacultyScheme extends AppCompatActivity implements TbsReaderView.Re
                 //初始化完成回调
             }
         });
+        mTbsReaderView = new TbsReaderView(this, this);
+        tbsReaderTemp = Environment.getExternalStorageDirectory() + "/TbsReaderTemp";
         RelativeLayout rel = findViewById(R.id.s_rl_pdf);
         rel.addView(mTbsReaderView, new RelativeLayout.LayoutParams(-1,-1));
     }
@@ -107,5 +120,9 @@ public class FacultyScheme extends AppCompatActivity implements TbsReaderView.Re
     protected void onDestroy() {
         super.onDestroy();
         mTbsReaderView.onStop();
+    }
+
+    public void onReturn(View view){
+        finish();
     }
 }
