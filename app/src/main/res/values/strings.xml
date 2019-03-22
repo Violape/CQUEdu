@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">CQUEdu</string>
     <string name="background">Background</string>
+    <string name="classschedule">My Class Schedule</string>
     <string name="copyright">Copyright ownership belongs to Lorenzo Wu.\nAll rights reserved.</string>
+    <string name="coursescores">My Course Scores</string>
     <string name="cquid">CQUID</string>
     <string name="cqulogo">CQU Logo</string>
     <string name="facultyscheme">Faculty Scheme</string>
