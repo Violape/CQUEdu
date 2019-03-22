@@ -64,6 +64,45 @@
         app:layout_constraintStart_toEndOf="@+id/p_iv_cqulogo"
         app:layout_constraintTop_toTopOf="@+id/p_iv_cqulogo" />
 
+    <Spinner
+        android:id="@+id/p_sp_year"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/Years"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p_iv_cqulogo" />
+
+    <Spinner
+        android:id="@+id/p_sp_semester"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/Terms"
+        app:layout_constraintStart_toEndOf="@+id/p_sp_year"
+        app:layout_constraintTop_toBottomOf="@+id/p_iv_cqulogo" />
+
+    <LinearLayout
+        android:id="@+id/p_linearlayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/p_bt_return"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button">
+
+        <ListView
+            android:id="@+id/p_lv_score"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/p_bt_return"
         android:layout_width="128dp"
@@ -79,4 +118,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="64dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Find"
+        app:layout_constraintStart_toEndOf="@+id/p_sp_semester"
+        app:layout_constraintTop_toBottomOf="@+id/p_iv_cqulogo" />
+
 </android.support.constraint.ConstraintLayout>
