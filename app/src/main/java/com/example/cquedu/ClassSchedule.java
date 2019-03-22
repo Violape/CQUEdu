@@ -27,6 +27,13 @@ public class ClassSchedule extends AppCompatActivity {
         myuser = intent.getStringExtra("CQUID");
         TextView signinfo = findViewById(R.id.t_tv_signinfo);
         signinfo.setText("Current User: "+ myuser);
+
+        Spinner spinner = findViewById(R.id.t_sp_week);
+        spinner.setSelection(4,true);
+        resetTable();
+        String page = getpage(5);
+        page = parseData(page, false);
+        page = parseData(page, true);
     }
 
     public void onReturn(View view){
@@ -38,11 +45,27 @@ public class ClassSchedule extends AppCompatActivity {
         Spinner spinner = findViewById(R.id.t_sp_week);
         int item = spinner.getSelectedItemPosition()+1;
         String page = getpage(item);
-        parseData(page);
+        page = parseData(page, false);
+        page = parseData(page, true);
     }
 
     private void resetTable(){
-        ;
+        for(int i=1; i<8; i++){
+            for(int j=1; j<6; j++){
+                String targetblock = "t_tv_c" + String.valueOf(i) + String.valueOf(j);
+                int targetid = getResources().getIdentifier(targetblock,"id", getPackageName());
+                TextView targetitem = findViewById(targetid);
+                targetitem.setText("");
+                if(i>5)
+                    targetitem.setBackgroundColor(getResources().getColor(R.color.themec2n));
+                else{
+                    if(i%2==1)
+                        targetitem.setBackgroundColor(getResources().getColor(R.color.themec2l2));
+                    else
+                        targetitem.setBackgroundColor(getResources().getColor(R.color.themec2l1));
+                }
+            }
+        }
     }
 
     private String getpage(int week){
@@ -72,15 +95,15 @@ public class ClassSchedule extends AppCompatActivity {
         return infores;
     }
 
-    private void parseData(String data){
+    private String parseData(String data, boolean exp){
         int left = data.indexOf("<TABLE class='page_table'>");
         if(left < 0)
-            return;
+            return null;
         data = data.substring(left);
 
         left = data.indexOf("<tbody>");
         if(left < 0)
-            return;
+            return null;
         data = data.substring(left);
 
         left = data.indexOf("</tbody>");
@@ -91,8 +114,19 @@ public class ClassSchedule extends AppCompatActivity {
             item = item.substring(item.indexOf("<td")+3);
             item = item.substring(item.indexOf("<td")+3);
             String course = findContent(item, "' >", "<br>");
-            for(int i = 0; i < 10; i++)
-                item = item.substring(item.indexOf("<td")+3);
+            if(course == ""){
+                course = findContent(item, "hidevalue=\"", "\">");
+            }
+            else{
+                if(exp){
+                    for(int i = 0; i < 9; i++)
+                        item = item.substring(item.indexOf("<td")+3);
+                }
+                else{
+                    for(int i = 0; i < 10; i++)
+                        item = item.substring(item.indexOf("<td")+3);
+                }
+            }
             String datetime = findContent(item, "' >", "<br>");
             item = item.substring(item.indexOf("<td")+3);
             String location = findContent(item, "' >", "<br>");
@@ -110,6 +144,8 @@ public class ClassSchedule extends AppCompatActivity {
             }
             int st = Integer.valueOf(findContent(datetime,"[","-"));
             int et = Integer.valueOf(findContent(datetime,"-","节"));
+            if(et>10)
+                et=10;
             int cur = 0;
             boolean flag = true;
             for(int i = 0; i < cnt; i++){
@@ -136,7 +172,7 @@ public class ClassSchedule extends AppCompatActivity {
             data = data.substring(data.indexOf("</tr>")+5);
             left = data.indexOf("</tbody>");
         }
-
+        return data;
     }
 
     private String findContent(String src, String start, String end){

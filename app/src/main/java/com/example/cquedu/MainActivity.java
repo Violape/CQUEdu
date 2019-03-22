@@ -152,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
                 .addHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8")
                 .addHeader("referer", "http://jxgl.cqu.edu.cn/PUB/foot.aspx")
                 .addHeader("accept-language", "zh-CN,zh;q=0.9,en;q=0.8")
-                .addHeader("cache-control", "no-cache")
                 .build();
         Response logres;
         String infores;
