@@ -3,7 +3,9 @@ package com.example.cquedu;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -28,15 +30,34 @@ public class ClassSchedule extends AppCompatActivity {
         TextView signinfo = findViewById(R.id.t_tv_signinfo);
         signinfo.setText("Current User: "+ myuser);
 
+        Button btn = findViewById(R.id.t_bt_return);
+        btn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Button mybtn = findViewById(R.id.t_bt_return);
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        mybtn.setBackgroundResource(R.drawable.buttononpressed);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        mybtn.setBackgroundResource(R.drawable.buttonbg);
+                        onReturn();
+                        break;
+                }
+                return true;
+            }
+        });
+
         Spinner spinner = findViewById(R.id.t_sp_week);
         spinner.setSelection(4,true);
         resetTable();
         String page = getpage(5);
         page = parseData(page, false);
         page = parseData(page, true);
+
     }
 
-    public void onReturn(View view){
+    public void onReturn(){
         finish();
     }
 

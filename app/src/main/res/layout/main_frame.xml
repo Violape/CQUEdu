@@ -243,7 +243,6 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/buttonbg"
         android:elevation="0dp"
-        android:onClick="onlogout"
         android:text="@string/mainlogout"
         android:textColor="@color/themec2l3"
         app:layout_constraintBottom_toTopOf="@+id/m_tv_copyright"

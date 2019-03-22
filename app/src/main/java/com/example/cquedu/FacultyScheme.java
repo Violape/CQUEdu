@@ -5,7 +5,9 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -45,6 +47,24 @@ public class FacultyScheme extends AppCompatActivity implements TbsReaderView.Re
         tbsReaderTemp = Environment.getExternalStorageDirectory() + "/TbsReaderTemp";
         RelativeLayout rel = findViewById(R.id.s_rl_pdf);
         rel.addView(mTbsReaderView, new RelativeLayout.LayoutParams(-1,-1));
+
+        Button btn = findViewById(R.id.s_bt_return);
+        btn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Button mybtn = findViewById(R.id.s_bt_return);
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        mybtn.setBackgroundResource(R.drawable.buttononpressed);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        mybtn.setBackgroundResource(R.drawable.buttonbg);
+                        onReturn();
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
@@ -122,7 +142,7 @@ public class FacultyScheme extends AppCompatActivity implements TbsReaderView.Re
         mTbsReaderView.onStop();
     }
 
-    public void onReturn(View view){
+    public void onReturn(){
         finish();
     }
 }

@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -49,6 +51,23 @@ public class Studentinfo extends AppCompatActivity {
 
         parseContent(user);
 
+        Button btn = findViewById(R.id.i_bt_return);
+        btn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Button mybtn = findViewById(R.id.i_bt_return);
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        mybtn.setBackgroundResource(R.drawable.buttononpressed);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        mybtn.setBackgroundResource(R.drawable.buttonbg);
+                        onReturn();
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     private void parseContent(String user){
@@ -584,7 +603,7 @@ public class Studentinfo extends AppCompatActivity {
         parseContent(target);
     }
 
-    public void onReturn(View view){
+    public void onReturn(){
         finish();
     }
 }

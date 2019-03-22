@@ -98,7 +98,6 @@
         android:background="@drawable/buttonbg"
         android:contentDescription="@string/returnback"
         android:elevation="0dp"
-        android:onClick="onReturn"
         android:text="@string/returnback"
         android:textColor="@color/themec2l3"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -5,7 +5,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainFrame extends AppCompatActivity {
@@ -14,10 +16,29 @@ public class MainFrame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_frame);
+
         Intent intent = getIntent();
         String cquid = intent.getStringExtra("CQUID");
         TextView signinfo = findViewById(R.id.m_tv_signinfo);
         signinfo.setText("Current User: "+ cquid);
+
+        Button btn = findViewById(R.id.m_bt_logout);
+        btn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Button mybtn = findViewById(R.id.m_bt_logout);
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        mybtn.setBackgroundResource(R.drawable.buttononpressed);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        mybtn.setBackgroundResource(R.drawable.buttonbg);
+                        onLogOut();
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     private DialogInterface.OnClickListener click1=new DialogInterface.OnClickListener()
@@ -39,7 +60,7 @@ public class MainFrame extends AppCompatActivity {
         }
     };
 
-    public void onlogout(View view) {
+    public void onLogOut() {
         AlertDialog.Builder alertdialogbuilder=new AlertDialog.Builder(this);
         alertdialogbuilder.setMessage("Are you sure to log out?");
         alertdialogbuilder.setPositiveButton("Yes",click1);

@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -44,9 +46,43 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .build();
+        Button btn = findViewById(R.id.sign);
+        btn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Button mybtn = findViewById(R.id.sign);
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        mybtn.setBackgroundResource(R.drawable.buttononpressed);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        mybtn.setBackgroundResource(R.drawable.buttonbg);
+                        onClickSignIn();
+                        break;
+                }
+                return true;
+            }
+        });
+        btn = findViewById(R.id.quit);
+        btn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Button mybtn = findViewById(R.id.quit);
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        mybtn.setBackgroundResource(R.drawable.buttononpressed);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        mybtn.setBackgroundResource(R.drawable.buttonbg);
+                        onQuit();
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
-    public void onClickSignIn(View v){
+    public void onClickSignIn(){
         EditText id = findViewById(R.id.TypeCQUID);
         String sid = id.getText().toString();
         EditText psw = findViewById(R.id.TypePassword);
@@ -192,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    public void onquit(View view) {
+    public void onQuit() {
         AlertDialog.Builder alertdialogbuilder=new AlertDialog.Builder(this);
         alertdialogbuilder.setMessage("Are you sure to quit?");
         alertdialogbuilder.setPositiveButton("Yes",click1);
