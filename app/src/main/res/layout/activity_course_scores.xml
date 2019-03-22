@@ -95,7 +95,7 @@
         app:layout_constraintBottom_toTopOf="@+id/p_bt_return"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintTop_toBottomOf="@+id/p_bt_check">
 
         <ListView
             android:id="@+id/p_lv_score"
@@ -120,12 +120,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/p_bt_check"
         android:layout_width="64dp"
         android:layout_height="40dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-        android:text="Find"
+        android:onClick="onSearch"
+        android:text="Check"
+        android:textSize="12sp"
+        android:typeface="normal"
         app:layout_constraintStart_toEndOf="@+id/p_sp_semester"
         app:layout_constraintTop_toBottomOf="@+id/p_iv_cqulogo" />
 
