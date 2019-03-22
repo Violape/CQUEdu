@@ -100,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
         int res = matchpassword(sid, spsw);
         Toast tot;
         switch (res){
+            case 2:
+                tot = Toast.makeText(this, "Server is busy.\nSome functions may not work.", Toast.LENGTH_LONG);
+                tot.show();
             case 0:
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, MainFrame.class);
@@ -108,10 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 1:
                 tot = Toast.makeText(this, "I/O Error! Please contact admin.", Toast.LENGTH_LONG);
-                tot.show();
-                break;
-            case 2:
-                tot = Toast.makeText(this, "Server Unavailable!", Toast.LENGTH_LONG);
                 tot.show();
                 break;
             case 3:
@@ -201,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
         int indexl = infores.indexOf('['), indexr = infores.indexOf(']');
         String cquid;
         if(indexl == -1 || indexr == -1)
-            return 0;
+            return 2;
         else
             cquid = infores.substring(indexl+1, indexr);
         if(cquid.equals(id))

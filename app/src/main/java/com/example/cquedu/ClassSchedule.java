@@ -119,12 +119,12 @@ public class ClassSchedule extends AppCompatActivity {
     private String parseData(String data, boolean exp){
         int left = data.indexOf("<TABLE class='page_table'>");
         if(left < 0)
-            return null;
+            return data;
         data = data.substring(left);
 
         left = data.indexOf("<tbody>");
         if(left < 0)
-            return null;
+            return data;
         data = data.substring(left);
 
         left = data.indexOf("</tbody>");
