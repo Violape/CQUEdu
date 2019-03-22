@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
         int indexl = infores.indexOf('['), indexr = infores.indexOf(']');
         String cquid;
         if(indexl == -1 || indexr == -1)
-            return 2;
+            return 0;
         else
             cquid = infores.substring(indexl+1, indexr);
         if(cquid.equals(id))

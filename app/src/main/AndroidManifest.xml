@@ -19,7 +19,8 @@
         android:sharedUserId="android.uid.system"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ClassSchedule"></activity>
+        <activity android:name=".CourseScores"></activity>
+        <activity android:name=".ClassSchedule" />
         <activity android:name=".FacultyScheme" />
         <activity android:name=".Studentinfo" />
         <activity android:name=".MainFrame" />
