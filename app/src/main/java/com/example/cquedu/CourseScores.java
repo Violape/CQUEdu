@@ -17,8 +17,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 
 public class CourseScores extends AppCompatActivity {
-    protected String field[] = new String[20];
-    protected String data[] = new String[20];
+    protected String course[] = new String[20];
+    protected String score[] = new String[20];
     Intent intent;
     private String myuser;
     private ArrayList<StudentInfoPair> theList = new ArrayList<StudentInfoPair>();
@@ -62,6 +62,10 @@ public class CourseScores extends AppCompatActivity {
     }
 
     public void onSearch(View view){
+        for(int i=0; i<20; i++){
+            course[i] = null;
+            score[i] = null;
+        }
         Spinner yr = findViewById(R.id.p_sp_year);
         Spinner sm = findViewById(R.id.p_sp_semester);
         int year = 2018 - yr.getSelectedItemPosition();
@@ -95,19 +99,56 @@ public class CourseScores extends AppCompatActivity {
     }
 
     private void parseData(String data){
-        ;
+        String grades = findContent(data, "ID='ID_Table'", "</table>");
+        if (grades == "N/A"){
+            return;
+        }
+        grades = grades.substring(grades.indexOf("<tr")+3);
+        grades = grades.substring(grades.indexOf("<tr")+3);
+        int left = grades.indexOf("<tr ");
+        int cnt = 0;
+        while (left >= 0){
+            String item = findContent(grades, "<tr ", "</tr>");
+            item = item.substring(item.indexOf("<td")+3);
+            item = item.substring(item.indexOf("<td")+3);
+            course[cnt] = findContent(item, "]","<br>");
+            item = item.substring(item.indexOf("<td")+3);
+            course[cnt] += "\n(" + findContent(item, ">", "<br>") + " credits)";
+            item = item.substring(item.indexOf("<td")+3);
+            item = item.substring(item.indexOf("<td")+3);
+            item = item.substring(item.indexOf("<td")+3);
+            item = item.substring(item.indexOf("<td")+3);
+            score[cnt] = findContent(item, ">", "<br>");
+            cnt++;
+            grades = grades.substring(grades.indexOf("</tr>")+5);
+            left = grades.indexOf("<tr ");
+        }
     }
 
     private void generateContent(){
         theList.clear();
-        for(int i = 0; i < field.length; i++){
-            String f = field[i];
-            String d = data[i];
+        for(int i = 0; i < course.length; i++){
+            if(course[i] == null)
+                break;
+            String f = course[i];
+            String d = score[i];
             theList.add(new StudentInfoPair(f,d));
         }
     }
 
     public void onReturn(){
         finish();
+    }
+
+    private String findContent(String src, String start, String end){
+        int left = src.indexOf(start)+start.length();
+        if(left < 0)
+            return "N/A";
+        String sub = src.substring(left);
+        int right = sub.indexOf(end);
+        if(right < 0)
+            return "N/A";
+        else
+            return sub.substring(0, right);
     }
 }
