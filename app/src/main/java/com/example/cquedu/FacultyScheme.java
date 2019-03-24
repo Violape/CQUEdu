@@ -7,21 +7,20 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.tencent.smtt.sdk.QbSdk;
-import com.tencent.smtt.sdk.TbsReaderView;
 
 import java.io.File;
 
-public class FacultyScheme extends AppCompatActivity implements TbsReaderView.ReaderCallback {
-    private TbsReaderView mTbsReaderView;
-    private String tbsReaderTemp;
+public class FacultyScheme extends AppCompatActivity{
     private Intent intent;
     private String myuser;
+    MyApplication application;
+    WebView mWebView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,21 +31,8 @@ public class FacultyScheme extends AppCompatActivity implements TbsReaderView.Re
         TextView signinfo = findViewById(R.id.s_tv_signinfo);
         signinfo.setText("Current User: "+ myuser);
 
-        QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
-            @Override
-            public void onCoreInitFinished() {
-                //初始化完成回调接口
-            }
-
-            @Override
-            public void onViewInitFinished(boolean b) {
-                //初始化完成回调
-            }
-        });
-        mTbsReaderView = new TbsReaderView(this, this);
-        tbsReaderTemp = Environment.getExternalStorageDirectory() + "/TbsReaderTemp";
-        RelativeLayout rel = findViewById(R.id.s_rl_pdf);
-        rel.addView(mTbsReaderView, new RelativeLayout.LayoutParams(-1,-1));
+        mWebView = findViewById(R.id.s_wb_pdf);
+        application = (MyApplication)this.getApplication();
 
         Button btn = findViewById(R.id.s_bt_return);
         btn.setOnTouchListener(new View.OnTouchListener() {
@@ -65,11 +51,6 @@ public class FacultyScheme extends AppCompatActivity implements TbsReaderView.Re
                 return true;
             }
         });
-    }
-
-    @Override
-    public void onCallBackAction(Integer i, Object o1, Object o2){
-        ;
     }
 
     public void getScheme(View view){
@@ -108,19 +89,36 @@ public class FacultyScheme extends AppCompatActivity implements TbsReaderView.Re
             case 28: targetpage = "38汽车"; break;
             default: break;
         }
-        String filePath = "";
-        String fileName = targetpage+".pdf";
-        String bsReaderTemp = tbsReaderTemp;
-        File bsReaderTempFile =new File(bsReaderTemp);
-        if (!bsReaderTempFile.exists()) {
-            boolean mkdir = bsReaderTempFile.mkdir();
-        }
-        Bundle bundle = new Bundle();
-        bundle.putString("filePath", filePath);
-        bundle.putString("tempPath", tbsReaderTemp);
-        boolean result = mTbsReaderView.preOpen(getFileType(fileName), false);
-        if (result)
-            mTbsReaderView.openFile(bundle);
+        String dlpg = "http://jxgl.cqu.edu.cn/_data/NEWS/kcdg/"+targetpage+".pdf";
+        download(dlpg);
+    }
+
+    private void download(String url) {
+        PDFDownloadUtil.download(application.license, url, getCacheDir() + "/temp.pdf", new PDFDownloadUtil.OnDownloadListener() {
+            @Override
+            public void onDownloadSuccess(final String path) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        preView(path);
+                    }
+                });
+            }
+
+            @Override
+            public void onDownloading(int progress) {
+
+            }
+
+            @Override
+            public void onDownloadFailed(String msg) {
+
+            }
+        });
+    }
+
+    private void preView(String pdfUrl) {
+        mWebView.loadUrl("file:///android_asset/web/viewer.html?file=" + pdfUrl);
     }
 
     private String getFileType(String paramString) {
@@ -134,12 +132,6 @@ public class FacultyScheme extends AppCompatActivity implements TbsReaderView.Re
         }
         str = paramString.substring(i + 1);
         return str;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mTbsReaderView.onStop();
     }
 
     public void onReturn(){
