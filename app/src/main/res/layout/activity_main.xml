@@ -115,7 +115,6 @@
         android:background="@drawable/buttonbg"
         android:contentDescription="@string/quit"
         android:elevation="0dp"
-        android:onClick="onquit"
         android:text="@string/quit"
         android:textColor="@color/themec2l3"
         app:layout_constraintEnd_toEndOf="parent"

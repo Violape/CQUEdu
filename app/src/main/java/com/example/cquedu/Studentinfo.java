@@ -58,10 +58,10 @@ public class Studentinfo extends AppCompatActivity {
                 Button mybtn = findViewById(R.id.i_bt_return);
                 switch (event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        mybtn.setBackgroundResource(R.drawable.buttononpressed);
+                        mybtn.setBackgroundResource(R.drawable.buttonrop);
                         break;
                     case MotionEvent.ACTION_UP:
-                        mybtn.setBackgroundResource(R.drawable.buttonbg);
+                        mybtn.setBackgroundResource(R.drawable.buttonrbg);
                         onReturn();
                         break;
                 }

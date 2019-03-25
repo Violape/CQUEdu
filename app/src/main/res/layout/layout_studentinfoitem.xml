@@ -18,7 +18,7 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:text="TextView"
-            android:textColor="@color/themec2d1"
+            android:textColor="@color/themec1d1"
             android:textSize="18sp"
             android:textStyle="bold"
             android:typeface="serif" />
@@ -33,7 +33,7 @@
             android:paddingBottom="8dp"
             android:text="TextView"
             android:textAlignment="textEnd"
-            android:textColor="@color/themec2n"
+            android:textColor="@color/themec1n"
             android:textSize="18sp"
             android:textStyle="normal"
             android:typeface="serif" />

@@ -10,7 +10,7 @@
         android:id="@+id/background"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/bg"
+        android:background="@drawable/bgg"
         android:contentDescription="@string/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         android:fontFamily="serif"
         android:text="@string/mainsigninfo"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/themec3d2"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
@@ -42,7 +42,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/search"
-        android:textColor="@color/themec2d1"
+        android:textColor="@color/themec3d1"
         android:textSize="24sp"
         android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
         android:fontFamily="serif"
         android:text="@string/facultyscheme"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/themec3d2"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/s_iv_cqulogo"
@@ -96,7 +96,7 @@
         android:onClick="getScheme"
         app:layout_constraintBottom_toBottomOf="@+id/s_sp_faculty"
         app:layout_constraintStart_toEndOf="@+id/s_sp_faculty"
-        app:srcCompat="@drawable/search" />
+        app:srcCompat="@drawable/searchg" />
 
     <Button
         android:id="@+id/s_bt_return"
@@ -105,11 +105,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/buttonbg"
+        android:background="@drawable/buttonbgg"
         android:contentDescription="@string/returnback"
         android:elevation="0dp"
         android:text="@string/returnback"
-        android:textColor="@color/themec2l3"
+        android:textColor="@color/themec3l3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

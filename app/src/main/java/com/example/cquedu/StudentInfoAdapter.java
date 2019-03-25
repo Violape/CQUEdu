@@ -1,6 +1,7 @@
 package com.example.cquedu;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,6 @@ public class StudentInfoAdapter extends ArrayAdapter<StudentInfoPair> {
         resID = resource;
     }
 
-    @Override
     public View getView(int position, View convertView, ViewGroup parent){
         StudentInfoPair studentinfo = getItem(position);
         View view;

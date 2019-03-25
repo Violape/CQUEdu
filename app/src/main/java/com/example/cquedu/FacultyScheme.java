@@ -41,10 +41,10 @@ public class FacultyScheme extends AppCompatActivity{
                 Button mybtn = findViewById(R.id.s_bt_return);
                 switch (event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        mybtn.setBackgroundResource(R.drawable.buttononpressed);
+                        mybtn.setBackgroundResource(R.drawable.buttonopg);
                         break;
                     case MotionEvent.ACTION_UP:
-                        mybtn.setBackgroundResource(R.drawable.buttonbg);
+                        mybtn.setBackgroundResource(R.drawable.buttonbgg);
                         onReturn();
                         break;
                 }
