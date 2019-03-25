@@ -17,6 +17,8 @@ public class ClassSchedule extends AppCompatActivity {
     private Intent intent;
     private String myuser;
     MyApplication application;
+    String[] courseList = new String[15];
+    int cnt = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,6 @@ public class ClassSchedule extends AppCompatActivity {
         String page = getpage(5);
         page = parseData(page, false);
         page = parseData(page, true);
-
     }
 
     public void onReturn(){
@@ -78,15 +79,18 @@ public class ClassSchedule extends AppCompatActivity {
                 TextView targetitem = findViewById(targetid);
                 targetitem.setText("");
                 if(i>5)
-                    targetitem.setBackgroundColor(getResources().getColor(R.color.themec2n));
+                    targetitem.setBackgroundColor(getResources().getColor(R.color.themec5l1));
                 else{
                     if(i%2==1)
-                        targetitem.setBackgroundColor(getResources().getColor(R.color.themec2l2));
+                        targetitem.setBackgroundColor(getResources().getColor(R.color.themec4l2));
                     else
-                        targetitem.setBackgroundColor(getResources().getColor(R.color.themec2l1));
+                        targetitem.setBackgroundColor(getResources().getColor(R.color.themec4l1));
                 }
             }
         }
+        for(int i=0; i<15; i++)
+            courseList[i] = null;
+        cnt = 0;
     }
 
     private String getpage(int week){
@@ -128,8 +132,6 @@ public class ClassSchedule extends AppCompatActivity {
         data = data.substring(left);
 
         left = data.indexOf("</tbody>");
-        int cnt = 0;
-        String[] courseList = new String[20];
         while(left > 0){
             String item = findContent(data, "<tr >", "</tr>");
             item = item.substring(item.indexOf("<td")+3);
@@ -177,18 +179,29 @@ public class ClassSchedule extends AppCompatActivity {
             }
             if(flag) {
                 courseList[cnt] = course;
-                cnt++;
                 cur = cnt;
+                cnt++;
             }
             String content = course + "\n" + location;
             int sb = (st+1)/2;
             int eb = et/2+1;
+            String colorid = String.valueOf(cur%5+1);
+            if(cur<5)
+                colorid = "themec"+ colorid + "n";
+            else
+                colorid = "themec"+ colorid + "d" + String.valueOf(cur/5);
+            int tcolorid = getResources().getIdentifier(colorid,"color", getPackageName());
             for(int i = sb; i < eb; i++){
                 String targetblock = "t_tv_c" + String.valueOf(day) + String.valueOf(i);
                 int targetid = getResources().getIdentifier(targetblock,"id", getPackageName());
                 TextView targetitem = findViewById(targetid);
                 targetitem.setText(content);
-                targetitem.setBackgroundColor(getResources().getColor(R.color.themec1n));
+                try{
+                    targetitem.setBackgroundColor(getResources().getColor(tcolorid));
+                }
+                catch (Exception e){
+                    ;
+                }
             }
             data = data.substring(data.indexOf("</tr>")+5);
             left = data.indexOf("</tbody>");
