@@ -63,4 +63,17 @@
         <item>Autumn Term</item>
         <item>Spring Term</item>
     </string-array>
+    <string-array name="Semester">
+        <item>2018/19 Autumn</item>
+        <item>2017/18 Spring</item>
+        <item>2017/18 Autumn</item>
+        <item>2016/17 Spring</item>
+        <item>2016/17 Autumn</item>
+        <item>2015/16 Spring</item>
+        <item>2015/16 Autumn</item>
+        <item>2014/15 Spring</item>
+        <item>2014/15 Autumn</item>
+        <item>2013/14 Spring</item>
+        <item>2013/14 Autumn</item>
+    </string-array>
 </resources>
