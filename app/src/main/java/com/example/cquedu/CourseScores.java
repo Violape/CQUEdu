@@ -45,10 +45,10 @@ public class CourseScores extends AppCompatActivity {
                 Button mybtn = findViewById(R.id.p_bt_return);
                 switch (event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        mybtn.setBackgroundResource(R.drawable.buttonrop);
+                        mybtn.setBackgroundResource(R.drawable.buttonopo);
                         break;
                     case MotionEvent.ACTION_UP:
-                        mybtn.setBackgroundResource(R.drawable.buttonrbg);
+                        mybtn.setBackgroundResource(R.drawable.buttonbgo);
                         onReturn();
                         break;
                 }
