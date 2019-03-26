@@ -23,9 +23,11 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
 public class Studentinfo extends AppCompatActivity {
+    // information to show
     protected String field[] = new String[]{"CQU ID","Chinese Name","Gender","Date of Birth","Origin","Faculty","Grade","Class Number"};
+    // values
     protected String data[] = new String[]{"N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A"};
-    private ArrayList<StudentInfoPair> theList = new ArrayList<StudentInfoPair>();
+    private ArrayList<StudentInfoPair> theList = new ArrayList<StudentInfoPair>(); // array lists to generate the list
     private Intent intent;
     private String user, myuser;
     private StudentInfoAdapter adapter;
@@ -35,20 +37,20 @@ public class Studentinfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentinfo);
-
+        //get the cquID of the login user
         intent = getIntent();
         myuser = intent.getStringExtra("CQUID");
         user = intent.getStringExtra("CQUID");
-
+        //get application to acquire the login information
         application = (MyApplication)this.getApplication();
-
+        //show the cquID of the login user to the title bar
         TextView signinfo = findViewById(R.id.i_tv_signinfo);
         signinfo.setText("Current User: "+ myuser);
-
+        //generate the list view
         adapter = new StudentInfoAdapter(getBaseContext(), R.layout.layout_studentinfoitem, theList);
         listView = findViewById(R.id.i_lv_infolist);
         listView.setAdapter(adapter);
-
+        //refresh the list view by adding contents parsed from the server
         parseContent(user);
 
         Button btn = findViewById(R.id.i_bt_return);
