@@ -31,11 +31,11 @@ public class ScoreComparison extends AppCompatActivity {
         TextView signInfo = findViewById(R.id.c_tv_signinfo);
         signInfo.setText("Current User: "+ myuser);
 
-        Button btn1 = findViewById(R.id.c_bt_compare);
+        Button btn1 = findViewById(R.id.c_bt_return);
         btn1.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Button myButton = findViewById(R.id.c_bt_compare);
+                Button myButton = findViewById(R.id.c_bt_return);
                 switch (event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         myButton.setBackgroundResource(R.drawable.buttonopy);
@@ -49,11 +49,11 @@ public class ScoreComparison extends AppCompatActivity {
             }
         });
 
-        Button btn2 = findViewById(R.id.c_bt_return);
+        Button btn2 = findViewById(R.id.c_bt_compare);
         btn2.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Button myButton = findViewById(R.id.c_bt_return);
+                Button myButton = findViewById(R.id.c_bt_compare);
                 switch (event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         myButton.setBackgroundResource(R.drawable.buttonopy);
