@@ -61,6 +61,7 @@ public class ScoreComparison extends AppCompatActivity {
     }
 
     private void getScore(String term, String user, boolean isMe){
+        //getting info
         RequestBody payload = new FormBody.Builder()
                 .add("chk","1")
                 .add("chkrad","1")
@@ -85,6 +86,7 @@ public class ScoreComparison extends AppCompatActivity {
             return;
         }
 
+        //initialization
         String stuName = findContent(data, "姓名：", "</td>");
         TextView tv1, tv2;
         if(isMe){
@@ -106,6 +108,7 @@ public class ScoreComparison extends AppCompatActivity {
         data = data.substring(data.indexOf("</table>")+8);
         data = data.substring(data.indexOf("</table>")+8);
 
+        //parsing info and calculate GPA
         double creditT = 0;
         double scoreCreditT = 0;
         int left = data.indexOf("<tr ");
@@ -116,43 +119,70 @@ public class ScoreComparison extends AppCompatActivity {
                 item = findContent(data, "<tr ", "</table>");
             item = item.substring(item.indexOf("<td")+3);
             item = item.substring(item.indexOf("<td")+3);
+            //get credit of the score
             double credit = Double.valueOf(findContent(item, ">","<br>"));
-
+            //get raw score
             for(int i=0; i<8; i++)
                 item = item.substring(item.indexOf("<td")+3);
             String scoreRaw = findContent(item, ">","<br>");
 
+            //transform raw score in to grade point for the course
             double scoreCredit;
-            switch (scoreRaw){
-                case "优秀": scoreCredit = 4; break;
-                case "良好": scoreCredit = 3.5; break;
-                case "中等": scoreCredit = 2.5; break;
-                case "及格": scoreCredit = 1; break;
-                case "不及格": scoreCredit = 0; break;
-                case "合格": scoreCredit = 3.5; break;
-                case "不合格": scoreCredit = 0; break;
-                case "未录入": scoreCredit = 0; credit = 0; break;
+            switch (scoreRaw) {
+                case "优秀":
+                    scoreCredit = 4;
+                    break;   // Grade A stands for 4.0
+                case "良好":
+                    scoreCredit = 3.5;
+                    break; // Grade B stands for 3.5
+                case "中等":
+                    scoreCredit = 2.5;
+                    break; // Grade C stands for 2.5
+                case "及格":
+                    scoreCredit = 1;
+                    break;   // Grade D stands for 1.0
+                case "不及格":
+                    scoreCredit = 0;
+                    break; // Grade F stands for 0.0
+                case "合格":
+                    scoreCredit = 3.5;
+                    break; // Grade Pass stands for 3.5
+                case "不合格":
+                    scoreCredit = 0;
+                    break; // Grade Fail stands for 0.0
+                // If a score is not decided, this course will not be calculated in his/her GPA.
+                case "未录入":
+                    scoreCredit = 0;
+                    credit = 0;
+                    break;
+                // If a score is given as a number, it will be rounded and transformed
                 default:
-                    int intScore = (int)(Double.valueOf(scoreRaw)+0.5);
-                    if(intScore>=90)
+                    int intScore = (int) (Double.valueOf(scoreRaw) + 0.5);
+                    // Scores above 90 are all standing for 4.0
+                    if (intScore >= 90)
                         scoreCredit = 4;
-                    else if(intScore>=60)
-                        scoreCredit = (intScore-50)*0.1;
+                        // Scores between 60 and 90 are given 1.0 - 4.0 each
+                    else if (intScore >= 60)
+                        scoreCredit = (intScore - 50) * 0.1;
+                        // Scores below 60 are all standing for 0.0
                     else
                         scoreCredit = 0;
                     break;
             }
-
+            // adding to the total
             creditT += credit;
             scoreCreditT += scoreCredit*credit;
-
+            // find next item
             data = data.substring(1);
             left = data.indexOf("<tr ");
         }
-
+        // calculate overall GPA as accurate as 0.001
         double termGPA = scoreCreditT/creditT;
         termGPA = (double)Math.round(termGPA * 1000) / 1000;
-        tv2.setText(String.valueOf(termGPA));
+        String termGPAs=String.valueOf(termGPA);
+        while(termGPAs.length()<5)
+            termGPAs += "0";
+        tv2.setText(termGPAs);
         return;
     }
 

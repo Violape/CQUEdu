@@ -71,11 +71,11 @@ public class CourseScores extends AppCompatActivity {
         int year = 2018 - yr.getSelectedItemPosition();
         int term = sm.getSelectedItemPosition();
         RequestBody payload = new FormBody.Builder()
-                .add("SJ","0")
-                .add("SelXNXQ","2")
-                .add("sel_xn",String.valueOf(year))
-                .add("sel_xq",String.valueOf(term))
-                .add("zfx_flag", "0")
+                .add("SJ","0") //check the final score only
+                .add("SelXNXQ","2") //check one single semester's score
+                .add("sel_xn",String.valueOf(year)) //entering year
+                .add("sel_xq",String.valueOf(term)) //entering semester(autumn = 0, spring = 1)
+                .add("zfx_flag", "0") //check major course scores only (minor courses make no sense)
                 .build();
         Request myScore = new Request.Builder()
                 .url("http://jxgl.cqu.edu.cn/xscj/Stu_MyScore_rpt.aspx")
@@ -111,13 +111,16 @@ public class CourseScores extends AppCompatActivity {
             String item = findContent(grades, "<tr ", "</tr>");
             item = item.substring(item.indexOf("<td")+3);
             item = item.substring(item.indexOf("<td")+3);
+            //get course name
             course[cnt] = findContent(item, "]","<br>");
             item = item.substring(item.indexOf("<td")+3);
+            //get credit
             course[cnt] += "\n(" + findContent(item, ">", "<br>") + " credits)";
             item = item.substring(item.indexOf("<td")+3);
             item = item.substring(item.indexOf("<td")+3);
             item = item.substring(item.indexOf("<td")+3);
             item = item.substring(item.indexOf("<td")+3);
+            //get score
             score[cnt] = findContent(item, ">", "<br>");
             cnt++;
             grades = grades.substring(grades.indexOf("</tr>")+5);

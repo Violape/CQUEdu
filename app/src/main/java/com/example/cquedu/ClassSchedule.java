@@ -133,10 +133,13 @@ public class ClassSchedule extends AppCompatActivity {
 
         left = data.indexOf("</tbody>");
         while(left > 0){
+            //get the course item
             String item = findContent(data, "<tr >", "</tr>");
             item = item.substring(item.indexOf("<td")+3);
             item = item.substring(item.indexOf("<td")+3);
+            //get course name
             String course = findContent(item, "' >", "<br>");
+            //if the course name is hidden, it can be found with in tags
             if(course == ""){
                 course = findContent(item, "hidevalue=\"", "\">");
             }
@@ -150,10 +153,12 @@ public class ClassSchedule extends AppCompatActivity {
                         item = item.substring(item.indexOf("<td")+3);
                 }
             }
+            //get day and time of the class
             String datetime = findContent(item, "' >", "<br>");
             item = item.substring(item.indexOf("<td")+3);
             String location = findContent(item, "' >", "<br>");
 
+            //switch the day into a number format
             course = course.substring(course.indexOf(']')+1);
             int day = 0;
             switch (datetime.substring(0,1)){
@@ -165,10 +170,14 @@ public class ClassSchedule extends AppCompatActivity {
                 case "六": day = 6; break;
                 case "日": day = 7; break;
             }
+            //get the beginning and ending segment of a class
             int st = Integer.valueOf(findContent(datetime,"[","-"));
             int et = Integer.valueOf(findContent(datetime,"-","节"));
+            //there could only be one class in the evening
             if(et>10)
                 et=10;
+            //if the course is listed, it will use the color used above
+            //if not listed, software will allocate a different color for the new course
             int cur = 0;
             boolean flag = true;
             for(int i = 0; i < cnt; i++){
@@ -182,15 +191,18 @@ public class ClassSchedule extends AppCompatActivity {
                 cur = cnt;
                 cnt++;
             }
+            //preparing contents drawn on the table
             String content = course + "\n" + location;
             int sb = (st+1)/2;
             int eb = et/2+1;
+            //allocating colors drawn on the table
             String colorid = String.valueOf(cur%5+1);
             if(cur<5)
                 colorid = "themec"+ colorid + "n";
             else
                 colorid = "themec"+ colorid + "d" + String.valueOf(cur/5);
             int tcolorid = getResources().getIdentifier(colorid,"color", getPackageName());
+            //draw on the table
             for(int i = sb; i < eb; i++){
                 String targetblock = "t_tv_c" + String.valueOf(day) + String.valueOf(i);
                 int targetid = getResources().getIdentifier(targetblock,"id", getPackageName());
@@ -203,6 +215,7 @@ public class ClassSchedule extends AppCompatActivity {
                     ;
                 }
             }
+            //get next item, if not found then return
             data = data.substring(data.indexOf("</tr>")+5);
             left = data.indexOf("</tbody>");
         }
