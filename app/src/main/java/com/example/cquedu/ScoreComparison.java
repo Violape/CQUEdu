@@ -35,7 +35,7 @@ public class ScoreComparison extends AppCompatActivity {
         btn1.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Button myButton = findViewById(R.id.c_bt_return);
+                Button myButton = findViewById(R.id.c_bt_compare);
                 switch (event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         myButton.setBackgroundResource(R.drawable.buttonopy);
