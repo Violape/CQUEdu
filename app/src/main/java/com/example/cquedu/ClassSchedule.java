@@ -51,9 +51,9 @@ public class ClassSchedule extends AppCompatActivity {
         });
 
         Spinner spinner = findViewById(R.id.t_sp_week);
-        spinner.setSelection(4,true);
+        spinner.setSelection(5,true);
         resetTable();
-        String page = getpage(5);
+        String page = getpage(6);
         page = parseData(page, false);
         page = parseData(page, true);
     }
