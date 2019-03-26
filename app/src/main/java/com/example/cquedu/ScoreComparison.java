@@ -60,7 +60,7 @@ public class ScoreComparison extends AppCompatActivity {
                         break;
                     case MotionEvent.ACTION_UP:
                         myButton.setBackgroundResource(R.drawable.buttonbgy);
-                        onReturn();
+                        onCompare();
                         break;
                 }
                 return true;
@@ -68,7 +68,7 @@ public class ScoreComparison extends AppCompatActivity {
         });
     }
 
-    public void onCompare(View view){
+    public void onCompare(){
         Spinner sp = findViewById(R.id.c_sp_term);
         int element = sp.getSelectedItemPosition();
         String term = String.valueOf((2018-((element+1)/2))*10+(element%2));
